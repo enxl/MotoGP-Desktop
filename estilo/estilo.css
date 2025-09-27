@@ -2,7 +2,32 @@
 
  /* Estilos generales del proyecto MotoGP-Desktop */
 
-/* Especificidad -> 0001*/
+ /*
+ Gama cromática:
+    - Orange #fd7f20
+    - Red Orange #fc2e20
+    - Amber #fdb750
+    - Black #010100
+*/
+
+/* Especificidad -> 001 */
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    background-color: #FDB750;
+    color: #010100;
+}
+
+/* Especificidad -> 001 */
+header {
+    background-color: #010100;
+}
+
+/* Especificidad -> 001 */
+h1 {
+    color: #FC2E20;
+}
+
+/* Especificidad -> 001 */
+nav {
+    color: #FD7F20;
 }
