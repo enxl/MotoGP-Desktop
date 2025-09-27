@@ -1,3 +1,8 @@
-/* datos personales Enol Monte Soto, UO287616*/
+/* Datos personales: Enol Monte Soto, UO287616 */
 
- /* Estilos generales del proyecto MotoGP-Desktop*/
+ /* Estilos generales del proyecto MotoGP-Desktop */
+
+/* Especificidad -> 0001*/
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+}
