@@ -37,7 +37,7 @@ h1 {
 
 /* Especificidad -> 001 */
 nav {
-    color: var(--blue);
+    color: var(--white);
 }
 
 /* Especificidad -> 002 */
