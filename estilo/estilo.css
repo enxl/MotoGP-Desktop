@@ -10,24 +10,32 @@
     - Black #010100
 */
 
+:root {
+--midnight-blue: #145DA0;
+    --dark-blue: #0C2D48;
+    --blue: #2E8BC0;
+    --baby-blue: #B1D4E0;
+    --white: #f0f0f0;
+}
+
 /* Especificidad -> 001 */
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
-    background-color: #FDB750;
-    color: #010100;
+    background-color: var(--baby-blue);
+    color: var(--dark-blue);
 }
 
 /* Especificidad -> 001 */
 header {
-    background-color: #010100;
+    background-color: var(--dark-blue);
 }
 
 /* Especificidad -> 001 */
 h1 {
-    color: #FC2E20;
+    color: var(--white);
 }
 
 /* Especificidad -> 001 */
 nav {
-    color: #FD7F20;
+    color: var(--blue);
 }
