@@ -11,7 +11,7 @@
 */
 
 :root {
---midnight-blue: #145DA0;
+    --midnight-blue: #145DA0;
     --dark-blue: #0C2D48;
     --blue: #2E8BC0;
     --baby-blue: #B1D4E0;
@@ -38,4 +38,14 @@ h1 {
 /* Especificidad -> 001 */
 nav {
     color: var(--blue);
+}
+
+/* Especificidad -> 002 */
+h1 a {
+    color: inherit
+}
+
+/* Especificidad -> 002 */
+nav a {
+    color: inherit
 }
