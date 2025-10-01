@@ -4,10 +4,11 @@
 
  /*
  Gama cromática:
-    - Orange #fd7f20
-    - Red Orange #fc2e20
-    - Amber #fdb750
-    - Black #010100
+    --midnight-blue: #145DA0;
+    --dark-blue: #0C2D48;
+    --blue: #2E8BC0;
+    --baby-blue: #B1D4E0;
+    --white: #f0f0f0;
 */
 
 :root {
