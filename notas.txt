@@ -1,0 +1,24 @@
+CSS
+---
+Si no podemos usar class ni id en css:
+Usar pseudoclses como first-of-type.
+
+text-decoration-line: Gestiona texto subrayado, tachado...
+
+Dar comportamiento "flow" al display:
+Utilizar el módulo CSS Flexible Box Layout
+    - Contenedor: Permite controlar las cajas que forman los  elementos.
+    - display-flex: Aplicar a los contenedores (e.g. header).
+    - Referencia (leer): CSS-Tricks: Flexbox Layout Gride.
+    - Dentro de header, también podemos "flexear" el nav para que se adapten los enlaces.
+
+Hoja layout.css debe ser exclusiva para el posicionamiento de los elementos.
+
+Media Queries: Permite cambiar comportamiento del posicionamiento de los elementos (van en layout.css).
+    - Dentro del cuerpo van los selectores a los que se le apica la media query. Ejemplo:
+
+    @media... {
+        header {
+            flex-direction: column;
+        }
+    }
