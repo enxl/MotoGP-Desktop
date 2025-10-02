@@ -49,3 +49,8 @@ header a {
     background-color: #B1D4E0;
     font-weight: bold;
 }
+
+/* Especificidad -> 012 */
+body > p:first-of-type {
+    font-size: 0.8em;
+}
