@@ -50,3 +50,8 @@ header a {
     background-color: transparent;
     text-decoration-line: none;
 }
+
+.active {
+    color: var(--dark-blue);
+    background-color: var(--baby-blue);
+}
