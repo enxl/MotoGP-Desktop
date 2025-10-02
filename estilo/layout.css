@@ -12,7 +12,4 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* para que no se amontonen los enlaces */
-    gap: 1rem;
-    width: 100%; 
 }
