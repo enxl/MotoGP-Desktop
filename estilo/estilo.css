@@ -17,7 +17,7 @@
     --blue: #2E8BC0;
     --baby-blue: #B1D4E0;
     --white: #f0f0f0;
-    --light-yellow: #fffd72;
+    --yellow: #fffb00;
 }
 
 /* Especificidad -> 001 */
@@ -45,10 +45,6 @@ nav {
     /* Color de fondo se hereda de header */
 }
 
-nav a:hover {
-    color: var(--light-yellow);
-}
-
 /* Especificidad -> 002 */
 header a {
     color: inherit;
@@ -56,7 +52,9 @@ header a {
     text-decoration-line: none;
 }
 
+/* Especificidad -> 010 */
 .active {
     color: var(--dark-blue);
     background-color: var(--baby-blue);
+    font-weight: bold;
 }
