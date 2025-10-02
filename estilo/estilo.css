@@ -8,40 +8,31 @@
     --dark-blue: #0C2D48;
     --blue: #2E8BC0;
     --baby-blue: #B1D4E0;
-    --white: #f0f0f0;
+    --white: #F0F0F0;
 */
-
-:root {
-    --midnight-blue: #145DA0;
-    --dark-blue: #0C2D48;
-    --blue: #2E8BC0;
-    --baby-blue: #B1D4E0;
-    --white: #f0f0f0;
-    --yellow: #fffb00;
-}
 
 /* Especificidad -> 001 */
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
-    background-color: var(--baby-blue);
-    color: var(--dark-blue);
+    background-color: #B1D4E0;
+    color: #0C2D48;
 }
 
 /* Especificidad -> 001 */
 header {
-    color: var(--white);
-    background-color: var(--dark-blue);
+    color: #F0F0F0;
+    background-color: #0C2D48;
 }
 
 /* Especificidad -> 001 */
 h1 {
-    color: var(--white);
+    color: #F0F0F0;
     /* Color de fondo se hereda de header */
 }
 
 /* Especificidad -> 001 */
 nav {
-    color: var(--white);
+    color: #F0F0F0;
     /* Color de fondo se hereda de header */
 }
 
@@ -54,7 +45,7 @@ header a {
 
 /* Especificidad -> 010 */
 .active {
-    color: var(--dark-blue);
-    background-color: var(--baby-blue);
+    color: #0C2D48;
+    background-color: #B1D4E0;
     font-weight: bold;
 }
