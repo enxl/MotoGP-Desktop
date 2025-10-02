@@ -2,14 +2,17 @@
 
 /* Estilos del proyecto MotoGP-Desktop relativos al posicionamiento de los elementos */
 
-/*
 header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 nav {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* para que no se amontonen los enlaces */
+    gap: 1rem;
+    width: 100%; 
 }
- */

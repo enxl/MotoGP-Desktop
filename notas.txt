@@ -22,3 +22,7 @@ Media Queries: Permite cambiar comportamiento del posicionamiento de los element
             flex-direction: column;
         }
     }
+
+Resumen flex:
+    - flex-direction: Establece dirección en la que se establecen los elementos.
+    - flex-wrap: Evita que los elementos se salgand el contenedor
