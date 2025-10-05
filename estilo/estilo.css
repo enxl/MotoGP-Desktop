@@ -9,6 +9,8 @@
     --blue: #2E8BC0;
     --baby-blue: #B1D4E0;
     --white: #F0F0F0;
+    --accent-orange #F4A261
+    --orange #BF5700
 */
 
 /* Especificidad -> 001 */
@@ -26,7 +28,7 @@ header {
 
 /* Especificidad -> 001 */
 h1 {
-    color: #F0F0F0;
+    color: #F4A261;
     /* Color de fondo se hereda de header */
 }
 
@@ -45,7 +47,7 @@ header a {
 
 /* Especificidad -> 010 */
 .active {
-    color: #0C2D48;
+    color: #BF5700;
     background-color: #B1D4E0;
     font-weight: bold;
 }
