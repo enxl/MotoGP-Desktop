@@ -47,8 +47,8 @@ header a {
 
 /* Especificidad -> 010 */
 .active {
-    color: #BF5700;
-    background-color: #B1D4E0;
+    color: #F4A261;
+    /* Color de fondo se hereda de header */
     font-weight: bold;
 }
 
