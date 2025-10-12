@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito>
+    <nombre>Sachsenring</nombre>
+    <longitud-circuito unidades="metros">3671</longitud-circuito>
+    <anchura-media unidades="metros">12</anchura-media>
+    <fecha>2025-07-13</fecha>
+    <hora>14:00</hora>
+    <vueltas>30</vueltas>
+    <localidad>Hohenstein-Ernstthal</localidad>
+    <pais>Alemania</pais>
+    <patrocinador>Liqui Moly</patrocinador>
+    <referencias>
+        <referencia>https://en.wikipedia.org/wiki/2025_German_motorcycle_Grand_Prix</referencia>
+        <referencia>
+            https://rtrsports.com/es/blog/descubre-el-sachsenring-corazon-de-la-velocidad-alemana/</referencia>
+        <referencia>https://www.redbull.com/es-es/datos-de-interes-sachsenring</referencia>
+    </referencias>
+    <fotografias>
+        <fotografia>multimedia/sachsenring1.jpg</fotografia>
+        <fotografia>multimedia/sachsenring2.jpg</fotografia>
+        <fotografia>multimedia/sachsenring3.jpg</fotografia>
+    </fotografias>
+    <videos>
+        <video>multimedia/sachsenring.mp4</video>
+    </videos>
+    <origen>
+        <coordenadas>
+            <longitud>12°41'17"E</longitud>
+            <latitud>50°47'30"N</latitud>
+            <altitud unidades="metros">330</altitud>
+        </coordenadas>
+    </origen>
+    <puntos>
+        <punto>
+            <distancia unidades="metros">434</distancia>
+            <coordenadas>
+                <longitud>12°41'26"E</longitud>
+                <latitud>50°47'30"N</latitud>
+                <altitud unidades="metros">312</altitud>
+            </coordenadas>
+            <sector>1</sector>
+        </punto>
+        <punto>
+            <distancia unidades="metros">940</distancia>
+            <coordenadas>
+                <longitud>12°41'37"E</longitud>
+                <latitud>50°47'25"N</latitud>
+                <altitud unidades="metros">320</altitud>
+            </coordenadas>
+            <sector>1</sector>
+        </punto>
+        <punto>
+            <distancia unidades="metros">1170</distancia>
+            <coordenadas>
+                <longitud>12°41'47"E</longitud>
+                <latitud>50°47'20"N</latitud>
+                <altitud unidades="metros">332</altitud>
+            </coordenadas>
+            <sector>2</sector>
+        </punto>
+        <punto>
+            <distancia unidades="metros">1127</distancia>
+            <coordenadas>
+                <longitud>12°41'30"E</longitud>
+                <latitud>50°47'28"N</latitud>
+                <altitud unidades="metros">315</altitud>
+            </coordenadas>
+            <sector>3</sector>
+        </punto>
+    </puntos>
+    <vencedor tiempo="40:42.854">Marc Márquez</vencedor>
+    <clasificados>
+        <clasificado posicion="1">Marc Márquez</clasificado>
+        <clasificado posicion="2">Alex Márquez</clasificado>
+        <clasificado posicion="3">Francesco Bagnaia</clasificado>
+    </clasificados>
+</circuito>

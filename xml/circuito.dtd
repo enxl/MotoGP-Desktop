@@ -1,0 +1,49 @@
+<!ELEMENT circuito (nombre, 
+                    longitud-circuito,
+                    anchura-media,
+                    fecha,
+                    hora,
+                    vueltas,
+                    localidad,
+                    pais,
+                    patrocinador,
+                    referencias,
+                    fotografias,
+                    videos,
+                    origen,
+                    puntos,
+                    vencedor,
+                    clasificados)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT longitud-circuito (#PCDATA)>
+<!ELEMENT anchura-media (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hora (#PCDATA)>
+<!ELEMENT vueltas (#PCDATA)>
+<!ELEMENT localidad (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT patrocinador (#PCDATA)>
+<!ELEMENT referencias (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ELEMENT fotografias (fotografia+)>
+<!ELEMENT fotografia (#PCDATA)>
+<!ELEMENT videos (video+)>
+<!ELEMENT video (#PCDATA)>
+<!ELEMENT origen (coordenadas)>
+<!ELEMENT puntos (punto+)>
+<!ELEMENT punto (distancia, coordenadas, sector)>
+<!ELEMENT distancia (#PCDATA)>
+<!ELEMENT sector (#PCDATA)>
+<!ELEMENT coordenadas (longitud, latitud, altitud)>
+<!ELEMENT longitud (#PCDATA)>
+<!ELEMENT latitud (#PCDATA)>
+<!ELEMENT altitud (#PCDATA)>
+<!ELEMENT vencedor (#PCDATA)>
+<!ELEMENT clasificados (clasificado, clasificado, clasificado)>
+<!ELEMENT clasificado (#PCDATA)>
+<!ATTLIST longitud-circuito unidades CDATA #REQUIRED>
+<!ATTLIST anchura-media unidades CDATA #REQUIRED>
+<!ATTLIST altitud unidades CDATA #REQUIRED>
+<!ATTLIST distancia unidades CDATA #REQUIRED>
+<!ATTLIST vencedor tiempo CDATA #REQUIRED>
+<!ATTLIST clasificado posicion CDATA #REQUIRED>
