@@ -26,3 +26,7 @@ Media Queries: Permite cambiar comportamiento del posicionamiento de los element
 Resumen flex:
     - flex-direction: Establece dirección en la que se establecen los elementos.
     - flex-wrap: Evita que los elementos se salgand el contenedor
+
+XML Schema 
+----------
+Generar código: La información se sace mediante expresiones XPath a través del árbol DOM.
