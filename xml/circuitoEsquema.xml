@@ -29,8 +29,8 @@
     </videos>
     <origen>
         <coordenadas>
-            <longitud>12.68806</longitud>
-            <latitud>50.79167</latitud>
+            <longitud unidades="grados">12.68806</longitud>
+            <latitud unidades="grados">50.79167</latitud>
             <altitud unidades="metros">330</altitud>
         </coordenadas>
     </origen>
@@ -38,8 +38,8 @@
         <punto>
             <distancia unidades="metros">434</distancia>
             <coordenadas>
-                <longitud>12.69056</longitud>
-                <latitud>50.79167</latitud>
+                <longitud unidades="grados">12.69056</longitud>
+                <latitud unidades="grados">50.79167</latitud>
                 <altitud unidades="metros">312</altitud>
             </coordenadas>
             <sector>1</sector>
@@ -47,8 +47,8 @@
         <punto>
             <distancia unidades="metros">940</distancia>
             <coordenadas>
-                <longitud>12.69361</longitud>
-                <latitud>50.79028</latitud>
+                <longitud unidades="grados">12.69361</longitud>
+                <latitud unidades="grados">50.79028</latitud>
                 <altitud unidades="metros">320</altitud>
             </coordenadas>
             <sector>1</sector>
@@ -56,8 +56,8 @@
         <punto>
             <distancia unidades="metros">1170</distancia>
             <coordenadas>
-                <longitud>12.69639</longitud>
-                <latitud>50.78889</latitud>
+                <longitud unidades="grados">12.69639</longitud>
+                <latitud unidades="grados">50.78889</latitud>
                 <altitud unidades="metros">332</altitud>
             </coordenadas>
             <sector>2</sector>
@@ -65,8 +65,8 @@
         <punto>
             <distancia unidades="metros">1127</distancia>
             <coordenadas>
-                <longitud>12.69167</longitud>
-                <latitud>50.79111</latitud>
+                <longitud unidades="grados">12.69167</longitud>
+                <latitud unidades="grados">50.79111</latitud>
                 <altitud unidades="metros">315</altitud>
             </coordenadas>
             <sector>3</sector>

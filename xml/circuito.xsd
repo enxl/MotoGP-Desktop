@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema elementFormDefault="qualified" xmlns="http://www.uniovi.es" targetNamespace="http://www.uniovi.es" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema elementFormDefault="qualified" xmlns="http://www.uniovi.es"
+	targetNamespace="http://www.uniovi.es" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="circuito">
 		<xs:complexType>
 			<xs:sequence>
@@ -23,24 +24,33 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nombre" type="xs:string" />
-	<xs:element name="longitud-circuito">
-		<xs:complexType >
-			<xs:simpleContent>
-				<xs:extension base="xs:decimal">
-					<xs:attribute name="unidades" type="xs:string" use="required" />
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="anchura-media">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:decimal">
-					<xs:attribute name="unidades" type="xs:string" use="required" />
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
+
+	<!-- Longitud del circuito y anchura media: Tipos para poder restringir los valores y a su vez poder contener el atributo unidades.-->
+	<xs:simpleType name="longitudPositiva">
+		<xs:restriction base="xs:decimal">
+			<xs:minExclusive value="0" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="tipoLongitudCircuito">
+		<xs:simpleContent>
+			<xs:extension base="longitudPositiva">
+				<xs:attribute name="unidades" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="tipoAnchuraMedia">
+		<xs:simpleContent>
+			<xs:extension base="longitudPositiva">
+				<xs:attribute name="unidades" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:element name="longitud-circuito" type="tipoLongitudCircuito"/>
+	<xs:element name="anchura-media" type="tipoAnchuraMedia"/>
+
 	<xs:element name="fecha" type="xs:date" />
 	<xs:element name="hora" type="xs:time" />
 	<xs:element name="vueltas" type="xs:positiveInteger" />
@@ -104,6 +114,51 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="sector" type="xs:positiveInteger" />
+
+	<!-- Estos tipos definen la restricciones de longitud y latitud -->
+	<xs:simpleType name="longitudDecimal">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-180" />
+			<xs:maxInclusive value="180" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="latitudDecimal">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-90" />
+			<xs:maxInclusive value="90" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Tipos complejos: restriciones y atributo unidades de  longitud y latitud -->
+	<xs:complexType name="tipoLongitud">
+		<xs:simpleContent>
+			<xs:extension base="longitudDecimal">
+				<xs:attribute name="unidades" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="tipoLatitud">
+		<xs:simpleContent>
+			<xs:extension base="latitudDecimal">
+				<xs:attribute name="unidades" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="tipoAltitud">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal">
+				<xs:attribute name="unidades" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:element name="longitud" type="tipoLongitud" />
+	<xs:element name="latitud" type="tipoLatitud" />
+	<xs:element name="altitud" type="tipoAltitud" />
+
 	<xs:element name="coordenadas">
 		<xs:complexType>
 			<xs:sequence>
@@ -113,31 +168,7 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="longitud">
-		<xs:simpleType>
-			<xs:restriction base="xs:decimal">
-				<xs:minInclusive value="-180"/>
-      			<xs:maxInclusive value="180"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-	<xs:element name="latitud">
-		<xs:simpleType>
-			<xs:restriction base="xs:decimal">
-				<xs:minInclusive value="-90"/>
-      			<xs:maxInclusive value="90"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-	<xs:element name="altitud">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:decimal">
-					<xs:attribute name="unidades" type="xs:string" use="required" />
-				</xs:extension>
-			</xs:simpleContent>
-		</xs:complexType>
-	</xs:element>
+
 	<xs:element name="vencedor">
 		<xs:complexType>
 			<xs:simpleContent>
