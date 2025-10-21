@@ -100,7 +100,6 @@ for punto in puntos:
     alt = coords.find('ns:altitud', namespace).text
     kml_coordenadas += f"{lon},{lat},{alt}\n"
 
-kml_coordenadas += kml_coordenadas[0]
 listaCoordenadas = "\n".join(kml_coordenadas)
 
 kml = Kml()
