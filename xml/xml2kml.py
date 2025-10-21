@@ -43,7 +43,7 @@ class Kml(object):
         ET.SubElement(ls,'extrude').text = extrude
         ET.SubElement(ls,'tessellation').text = tesela
         ET.SubElement(ls,'coordinates').text = listaCoordenadas
-        ET.SubElement(ls,'altitudeMode').text = modoAltitud 
+        ET.SubElement(ls,'altitudeMode').text = modoAltitud
 
         estilo = ET.SubElement(pm, 'Style')
         linea = ET.SubElement(estilo, 'LineStyle')
@@ -61,7 +61,7 @@ class Kml(object):
         """
         ET.indent(arbol)
         arbol.write(nombreArchivoKML, encoding='utf-8', xml_declaration=True)
-    
+
     def ver(self):
         """
         Muestra el archivo KML. Se utiliza para depurar
@@ -72,7 +72,7 @@ class Kml(object):
             print("Contenido = "    , self.raiz.text.strip('\n')) #strip() elimina los '\n' del string
         else:
             print("Contenido = "    , self.raiz.text)
-        
+
         print("Atributos = "    , self.raiz.attrib)
 
         # Recorrido de los elementos del árbol
@@ -81,37 +81,48 @@ class Kml(object):
             if hijo.text != None:
                 print("Contenido = ", hijo.text.strip('\n')) #strip() elimina los '\n' del string
             else:
-                print("Contenido = ", hijo.text)    
+                print("Contenido = ", hijo.text)
             print("Atributos = ", hijo.attrib)
 
 # Sección que transforma el código de circuitoEsquema.xml en sintaxis KML.
 
-namespace = {'ns': 'http://www.uniovi.es'}
-tree = ET.parse('circuitoEsquema.xml')
-root = tree.getroot() 
-puntos = root.findall('.//ns:punto', namespace)
+def toKML(archivoXML):
 
-kml_coordenadas = ""
+    try:
+        tree = ET.parse(archivoXML)
+    except IOError:
+        print ('No se encuentra el archivo ', archivoXML)
+        exit()
+    except ET.ParseError:
+        print("Error procesando en el archivo XML = ", archivoXML)
+        exit()
 
-for punto in puntos:
-    coords = punto.find('ns:coordenadas', namespace)
-    lon = coords.find('ns:longitud', namespace).text
-    lat = coords.find('ns:latitud', namespace).text
-    alt = coords.find('ns:altitud', namespace).text
-    kml_coordenadas += f"{lon},{lat},{alt}\n"
+    root = tree.getroot()
+    namespace = {'ns': 'http://www.uniovi.es'}
+    puntos = root.findall('.//ns:punto', namespace)
+    kml_coordenadas = ''
 
-listaCoordenadas = "\n".join(kml_coordenadas)
+    for punto in puntos:
+        coords = punto.find('ns:coordenadas', namespace)
+        lon = coords.find('ns:longitud', namespace).text
+        lat = coords.find('ns:latitud', namespace).text
+        alt = coords.find('ns:altitud', namespace).text
+        kml_coordenadas += f"{lon},{lat},{alt}\n"
 
-kml = Kml()
-kml.addLineString(
-    nombre="Sachsenring",
-    extrude="1",
-    tesela="1",
-    listaCoordenadas = kml_coordenadas.strip(),
-    modoAltitud="absolute",
-    color="ff0000ff",
-    ancho="5")
+    listaCoordenadas = "\n".join(kml_coordenadas)
 
-kml.escribir("circuito.kml")
-print("Operación exitosa!")
+    kml = Kml()
+    kml.addLineString(
+        nombre='Sachsenring',
+        extrude='1',
+        tesela='1',
+        listaCoordenadas = kml_coordenadas.strip(),
+        modoAltitud='absolute',
+        color='ff0000ff',
+        ancho='5')
+
+    kml.escribir('circuito.kml')
+    print('Operación exitosa!')
+
+toKML('circuitoEsquema.xml')
 

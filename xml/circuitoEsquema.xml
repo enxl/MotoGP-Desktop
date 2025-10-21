@@ -36,6 +36,15 @@
     </origen>
     <puntos>
         <punto>
+            <distancia unidades="metros">0.000</distancia>
+            <coordenadas>
+                <longitud unidades="grados">12.6837746866335</longitud>
+                <latitud unidades="grados">50.7899238008232</latitud>
+                <altitud unidades="metros">318.7914853793927</altitud>
+            </coordenadas>
+            <sector>3</sector>
+        </punto>
+        <punto>
             <distancia unidades="metros">315.996</distancia>
             <coordenadas>
                 <longitud unidades="grados">12.68806933735892</longitud>
@@ -244,15 +253,6 @@
         </punto>
         <punto>
             <distancia unidades="metros">315.996</distancia>
-            <coordenadas>
-                <longitud unidades="grados">12.6837746866335</longitud>
-                <latitud unidades="grados">50.7899238008232</latitud>
-                <altitud unidades="metros">318.7914853793927</altitud>
-            </coordenadas>
-            <sector>3</sector>
-        </punto>
-        <punto>
-            <distancia unidades="metros">0.000</distancia>
             <coordenadas>
                 <longitud unidades="grados">12.6837746866335</longitud>
                 <latitud unidades="grados">50.7899238008232</latitud>
