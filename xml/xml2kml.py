@@ -122,5 +122,5 @@ def toKML(archivoXML):
     kml.escribir('circuito.kml')
     print('Operación exitosa!')
 
-toKML('circuitoEsquema.xml')
+toKML(input("Introduzca nombre fichero XML: "))
 

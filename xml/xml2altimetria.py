@@ -120,6 +120,7 @@ class Svg(object):
 # Sección de código para contruir el SVG de la altimetría
 
 def toSVG(archivoXML):
+
     try:
         tree = ET.parse(archivoXML)
     except IOError:
@@ -131,10 +132,11 @@ def toSVG(archivoXML):
         
     root = tree.getroot()
     namespace = {'ns': 'http://www.uniovi.es'}
-    puntos = root.findall('.//ns:puntos/punto', namespace)
+    puntos = root.findall('.//ns:punto', namespace)
     puntos_svg = []
     distancia_recorrida = 0
     escala = 0.1
+    puntos_string = ""
     
     for punto in puntos:
         distancia_punto_texto = punto.find('ns:distancia', namespace)
@@ -144,14 +146,23 @@ def toSVG(archivoXML):
         altitud_punto_texto = coords_punto.find('ns:altitud', namespace)
         altitud_punto = float(altitud_punto_texto.text.strip())
         puntos_svg.append((distancia_recorrida * escala, altitud_punto))
+
+    for x, y in puntos_svg:
+        puntos_string += f"{int(x)},{int(y)} "
     
-    puntos_str = " ".join([f"{int(x)},{int(y)}" for x, y in puntos])
+
+    # Cerrar la polilínea
+    altura_base = 400 
+    x_inicio = int(puntos_svg[0][0])
+    x_final = int(puntos_svg[-1][0])
+    puntos_string += f"{x_final},{altura_base} {x_inicio},{altura_base} {x_inicio},{int(puntos_svg[0][1])}"
+
     altimetria_svg = Svg()
-    altimetria_svg.addPolyline(puntos_str, stroke="blue", strokeWith="3", fill="none")
+    altimetria_svg.addPolyline(puntos_string.strip(), stroke="blue", strokeWith="5", fill="#00FFFF")
     altimetria_svg.escribir("altimetria.svg")
     print("Operación Exitosa!")
 
-toSVG("circuitoEsquema.xml")
+toSVG(input("Introduzca nombre fichero XML: "))
         
         
     
