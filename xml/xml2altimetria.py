@@ -130,7 +130,7 @@ def toSVG(archivoXML):
         exit()
         
     root = tree.getroot()
-    namespace = {'ns', 'http://www.uniovi.es'}
+    namespace = {'ns': 'http://www.uniovi.es'}
     puntos = root.findall('.//ns:puntos/punto', namespace)
     puntos_svg = []
     distancia_recorrida = 0
@@ -143,9 +143,9 @@ def toSVG(archivoXML):
         coords_punto = punto.find('ns:coordenadas', namespace)
         altitud_punto_texto = coords_punto.find('ns:altitud', namespace)
         altitud_punto = float(altitud_punto_texto.text.strip())
-        puntos.append(distancia_recorrida * escala, altitud_punto)
-        puntos_str = " ".join([f"{int(x)},{int(y)}" for x, y in puntos])
+        puntos_svg.append((distancia_recorrida * escala, altitud_punto))
     
+    puntos_str = " ".join([f"{int(x)},{int(y)}" for x, y in puntos])
     altimetria_svg = Svg()
     altimetria_svg.addPolyline(puntos_str, stroke="blue", strokeWith="3", fill="none")
     altimetria_svg.escribir("altimetria.svg")
