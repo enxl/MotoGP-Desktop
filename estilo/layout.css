@@ -30,7 +30,7 @@ nav {
     }
 
     /* Especificidad -> 001 */
-    video {
+    video, figure {
         width: 100%; 
         height: auto;
     }
