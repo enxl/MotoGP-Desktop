@@ -25,7 +25,8 @@
 	</xs:element>
 	<xs:element name="nombre" type="xs:string" />
 
-	<!-- Longitud del circuito y anchura media: Tipos para poder restringir los valores y a su vez poder contener el atributo unidades.-->
+	<!-- Longitud del circuito y anchura media: Tipos para poder restringir los valores y a su vez
+	poder contener el atributo unidades.-->
 	<xs:simpleType name="longitudPositiva">
 		<xs:restriction base="xs:decimal">
 			<xs:minExclusive value="0" />
@@ -48,8 +49,8 @@
 		</xs:simpleContent>
 	</xs:complexType>
 
-	<xs:element name="longitud-circuito" type="tipoLongitudCircuito"/>
-	<xs:element name="anchura-media" type="tipoAnchuraMedia"/>
+	<xs:element name="longitud-circuito" type="tipoLongitudCircuito" />
+	<xs:element name="anchura-media" type="tipoAnchuraMedia" />
 
 	<xs:element name="fecha" type="xs:date" />
 	<xs:element name="hora" type="xs:time" />
@@ -72,7 +73,15 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="fotografia" type="xs:string" />
+	<xs:element name="fotografia">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="alt" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="videos">
 		<xs:complexType>
 			<xs:sequence>
