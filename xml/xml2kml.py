@@ -109,8 +109,6 @@ def toKML(archivoXML):
         alt = coords.find('ns:altitud', namespace).text
         kml_coordenadas += f"{lon},{lat},{alt}\n"
 
-    listaCoordenadas = "\n".join(kml_coordenadas)
-
     kml = Kml()
     kml.addLineString(
         nombre='Sachsenring',
