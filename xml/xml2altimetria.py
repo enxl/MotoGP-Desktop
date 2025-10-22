@@ -158,7 +158,10 @@ def toSVG(archivoXML):
     puntos_string += f"{x_final},{altura_base} {x_inicio},{altura_base} {x_inicio},{int(puntos_svg[0][1])}"
 
     altimetria_svg = Svg()
-    altimetria_svg.addPolyline(puntos_string.strip(), stroke="blue", strokeWith="5", fill="#00FFFF")
+    altimetria_svg.addPolyline(puntos_string.strip(), 
+                               stroke="blue", 
+                               strokeWith="5", 
+                               fill="#00FFFF")
     altimetria_svg.escribir("altimetria.svg")
     print("Operación Exitosa!")
 
