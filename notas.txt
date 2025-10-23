@@ -30,3 +30,17 @@ Resumen flex:
 XML Schema 
 ----------
 Generar código: La información se sace mediante expresiones XPath a través del árbol DOM.
+
+JS
+--
+Devolver el nombre tal cual. (document.write(...) va en el HTML)
+Devolver la lista con el resto de atributos ya formateada en HTML.
+Coordenadas: Devuelve document.write("<p>...<p>") en el JS.
+
+Instancias: <head>
+                <script src"..."/>
+            </head>
+            <body>
+                <script var ciudad = new Ciudad(...)>
+                A partir de aquí se puede usar la ciudad.
+            </body>
