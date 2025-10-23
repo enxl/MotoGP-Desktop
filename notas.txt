@@ -25,7 +25,7 @@ Media Queries: Permite cambiar comportamiento del posicionamiento de los element
 
 Resumen flex:
     - flex-direction: Establece dirección en la que se establecen los elementos.
-    - flex-wrap: Evita que los elementos se salgand el contenedor
+    - flex-wrap: Evita que los elementos se salgan del contenedor
 
 XML Schema 
 ----------
@@ -33,7 +33,7 @@ Generar código: La información se sace mediante expresiones XPath a través de
 
 JS
 --
-Devolver el nombre tal cual. (document.write(...) va en el HTML)
+Devolver el nombre tal cual.
 Devolver la lista con el resto de atributos ya formateada en HTML.
 Coordenadas: Devuelve document.write("<p>...<p>") en el JS.
 
@@ -44,3 +44,26 @@ Instancias: <head>
                 <script var ciudad = new Ciudad(...)>
                 A partir de aquí se puede usar la ciudad.
             </body>
+
+Validar HTML con JS integrado: Clic en la etiqueta xml, copiar el elemento, ir al validador y pegarlo.
+
+Cartas: Dentro del bloque main:
+<main>
+    <h2>Juego De Memoria</h2>
+        <article>
+            <h3>Memory Card</h3>
+            <img src="..." alt="..."/>
+        </article>
+        (...)
+</main>
+
+Grid:
+display-grid
+grid-template-columns: repeat(4, 1fr) (fr es la fracción) => 1fr, 1fr, 1fr, 1fr
+glid-template-rows: repeat(4, 1fr)
+grid-gap 2em?
+
+Eventos:
+Estados de las tarjetas:
+Añadir atributo data-state="flip" al article.
+Mediante atributo onClick="mem.flipCard(this) en el article, evento de ratón.

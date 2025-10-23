@@ -1,16 +1,18 @@
 <!DOCTYPE HTML>
 
 <html lang="es">
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <title>MotoGP-Meteorología</title>
-    <meta name ="author" content ="Enol Monte Soto" />
-    <meta name ="description" content ="Información meteorológica." />
-    <meta name ="keywords" content ="MotoGP, Meteorología" />
-    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
+    <meta name="author" content="Enol Monte Soto" />
+    <meta name="description" content="Información meteorológica." />
+    <meta name="keywords" content="MotoGP, Meteorología" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script src="js/ciudad.js"></script>
 </head>
 
 <body>
@@ -30,7 +32,20 @@
 
     <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> <strong>Meteorología</strong></p>
 
-    <h2>Información meteorológica</h2>
-    <p>en desarrollo</p>
+    <main>
+        <h2>Información Meteorológica</h2>
+        <section>
+            <script>
+                var c = new Ciudad("Oberlungwitz", "Alemania", "oberlungwitzense");
+                c.rellenarDatos(6794, 12.723882235743968, 50.78520807361491);
+                document.write("<p>Localidad: ");
+                document.write(c.getNombreCiudad());
+                document.write("</p>");
+                document.write(c.getInfoSecundaria());
+                c.getCoordenadas();
+            </script>
+        </section>
+    </main>
 </body>
+
 </html>
