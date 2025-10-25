@@ -24,6 +24,7 @@ body {
 header {
     color: #F0F0F0;
     background-color: #0C2D48;
+    padding: 0 2%;
 }
 
 /* Especificidad -> 001 */
@@ -35,6 +36,7 @@ h1 {
 /* Especificidad -> 001 */
 nav {
     color: #F0F0F0;
+    font-size: 1.15em;
     /* Color de fondo se hereda de header */
 }
 

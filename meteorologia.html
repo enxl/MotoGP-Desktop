@@ -35,8 +35,9 @@
     <main>
         <h2>Información Meteorológica</h2>
         <section>
+            <h3>Datos de la localidad</h3>
             <script>
-                var c = new Ciudad("Oberlungwitz", "Alemania", "oberlungwitzense");
+                let c = new Ciudad("Oberlungwitz", "Alemania", "oberlungwitzense");
                 c.rellenarDatos(6794, 12.723882235743968, 50.78520807361491);
                 document.write("<p>Localidad: ");
                 document.write(c.getNombreCiudad());

@@ -5,7 +5,10 @@
 /* Especificidad -> 001 */
 header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 /* Especificidad -> 001 */
@@ -13,15 +16,26 @@ nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 5%;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 2;
+}
+
+/* Especificidad: 002 */
+header h1 {
+    flex: 1;
+    justify-content: space-between;
 }
 
 @media (min-width: 320px) and (max-width: 799px) {
 
     /* Especificidad -> 001 */
-    header, h1, nav {
+    header, nav {
         /* Aviso de redefinición permitido */
         flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
     }
 
     /* Especificidad -> 002 */
