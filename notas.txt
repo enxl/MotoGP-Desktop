@@ -58,7 +58,7 @@ Cartas: Dentro del bloque main:
 </main>
 
 Grid:
-display-grid
+display: grid
 grid-template-columns: repeat(4, 1fr) (fr es la fracción) => 1fr, 1fr, 1fr, 1fr
 glid-template-rows: repeat(4, 1fr)
 grid-gap 2em?

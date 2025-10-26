@@ -1,0 +1,26 @@
+/* Datos personales: Enol Monte Soto, UO287616 */
+
+/* Hoja de estilos para el juego de cartas. */
+
+/* Especificidad -> 001 */
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto repeat(3, 1fr);
+    grid-gap: 2em;
+}
+
+/* Especificidad -> 011 */
+main > *:first-child {
+   grid-column: 1 / -1; 
+}
+
+@media (min-width: 320px) and (max-width: 799px) {
+
+    /* Especificidad -> 001 */
+    main {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto repeat(6, 1fr);
+    }
+
+}
