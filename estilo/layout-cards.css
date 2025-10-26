@@ -19,7 +19,9 @@ main > *:first-child {
 
     /* Especificidad -> 001 */
     main {
+        /* Aviso de redefinición permitido */
         grid-template-columns: repeat(2, 1fr);
+        /* Aviso de redefinición permitido */
         grid-template-rows: auto repeat(6, 1fr);
     }
 
