@@ -11,8 +11,8 @@ main {
 }
 
 /* Especificidad -> 011 */
-main > *:first-child {
-   grid-column: 1 / -1; 
+main>*:first-child {
+    grid-column: 1 / -1;
 }
 
 @media (min-width: 320px) and (max-width: 799px) {
@@ -23,6 +23,11 @@ main > *:first-child {
         grid-template-columns: repeat(2, 1fr);
         /* Aviso de redefinición permitido */
         grid-template-rows: auto repeat(6, 1fr);
+    }
+
+    /* Especificidad -> 002 */
+    main article {
+        width: 40vw;
     }
 
 }

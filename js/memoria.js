@@ -5,10 +5,10 @@
 */
 class Memoria {
     constructor() {
-        
+
     }
 
-    flipCard(card) {
-        card.dataset.state = "flip";
+    voltearCarta(carta) {
+        carta.dataset.estado = "revelada";
     }
 }
