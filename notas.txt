@@ -67,3 +67,12 @@ Eventos:
 Estados de las tarjetas:
 Añadir atributo data-state="flip" al article.
 Mediante atributo onClick="mem.flipCard(this) en el article, evento de ratón.
+
+Cronómetro: Utilizar objeto Temporal.
+Utilizar bloques try-catch para usar temporal.
+Si no esta disponible, utilizar objeto Date.
+Tomar referencia de tiempo al iniciar.
+Otra referencia en actualizar.
+Lo transcurrido se guarda en el atributo tiempo.
+Una vez cada décima de segundo.
+Date -> Usar this.corriendo= setInterval(..., t)
