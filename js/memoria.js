@@ -11,6 +11,8 @@ class Memoria {
         this.segunda_carta = null;
         this.barajarCartas();
         this.tablero_bloqueado = false;
+        this.cronometro = new Cronometro();
+        this.cronometro.arrancar();
     }
 
     voltearCarta(carta) {
@@ -59,9 +61,11 @@ class Memoria {
         for (var i = 0; i < cartas.length; i++) {
             if (cartas[i].dataset.estado !== "revelada") {
                 completado = false;
-                break;
+                return;
             }
         }
+
+        this.cronometro.parar();
     }
 
     cubrirCartas() {
