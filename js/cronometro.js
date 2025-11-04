@@ -10,6 +10,7 @@ class Cronometro {
     }
 
     arrancar() {
+        this.reiniciar();
         try {
             if (typeof Temporal === 'undefined') {
                 throw new Error("Objeto Temporal no disponible");
