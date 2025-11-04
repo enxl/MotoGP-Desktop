@@ -1,7 +1,7 @@
 /*
     Juego de memoria con cartas.
     Autor: Enol Monte Soto
-    Versión: 1
+    Versión: 2
 */
 class Memoria {
     
