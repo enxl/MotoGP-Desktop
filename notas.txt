@@ -76,3 +76,16 @@ Otra referencia en actualizar.
 Lo transcurrido se guarda en el atributo tiempo.
 Una vez cada décima de segundo.
 Date -> Usar this.corriendo= setInterval(..., t)
+
+Refactorización:
+En los html preferiblemente solo invocación a métodos y creación de objetos.
+El atributo onClick -> Sustituir por un EventListener en el JS.
+(Recorrer tarjetas y añadir un manejador a cada una -> Igual hay que usar el bind).
+Usar métodos privados si se puede. (comprobarJuego, cubrirCartas...)
+
+Servicios Web:
+Utilizar métodos de la API como flickr.photos.getPopular.
+$('selector').(...) -> Uso de selectores con JQuery.
+En news api, no usar correo de uniovi.
+fetch() devuelve una promesa, dentro de la promesa está la info de la petición.
+No crear articulos ni secciones para cada noticia (mejor encabezado + párrafo).

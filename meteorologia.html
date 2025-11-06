@@ -40,10 +40,10 @@
             <script>
                 let c = new Ciudad("Oberlungwitz", "Alemania", "oberlungwitzense");
                 c.rellenarDatos(6794, 12.723882235743968, 50.78520807361491);
-                document.write("<p>Localidad: ");
-                document.write(c.getNombreCiudad());
-                document.write("</p>");
-                document.write(c.getInfoSecundaria());
+                const parrafoLocalidad = document.createElement("p");
+                parrafoLocalidad.textContent = "Localidad: " + c.getNombreCiudad();
+                document.body.appendChild(parrafoLocalidad);
+                c.getInfoSecundaria();
                 c.getCoordenadas();
             </script>
         </section>

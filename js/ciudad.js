@@ -26,15 +26,20 @@ class Ciudad {
     }
 
     getInfoSecundaria() {
-        const lista = "<ul>" +
-                "   <li> Gentilicio: " + this.gentilicio + "</li>" +
-                "   <li> Población: " + this.poblacion + " habitantes</li>" +
-                "</ul>";
-        return lista;
+        const lista = document.createElement("ul");
+        const liGentilicio = document.createElement("li");
+        liGentilicio.textContent = "Gentilicio: " + this.gentilicio;
+        const liPoblacion = document.createElement("li");
+        liPoblacion.textContent = "Población: " + this.poblacion + " habitantes";
+        lista.appendChild(liGentilicio);
+        lista.appendChild(liPoblacion);
+        document.body.appendChild(lista);
     }
 
     getCoordenadas() {
-        document.write("<p>Coordenadas: (" + this.latitud + ", " + this.longitud +  ")</p>");
+        const parrafo = document.createElement("p");
+        parrafo.textContent = "Coordenadas: (" + this.latitud + ", " + this.longitud + ")";
+        document.body.appendChild(parrafo);
     }
 
 }
