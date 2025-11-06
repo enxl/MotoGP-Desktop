@@ -4,6 +4,7 @@
     Versión: 3
 */
 class Memoria {
+
     #tablero_bloqueado;
     #primera_carta;
     #segunda_carta;
@@ -40,6 +41,7 @@ class Memoria {
         }
         for (let i = 0; i < cartas.length; i++) {
             main.appendChild(cartas[i]);
+            cartas[i].addEventListener("click", this.voltearCarta.bind(this, cartas[i]));
         }
     }
 
