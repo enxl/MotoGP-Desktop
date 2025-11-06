@@ -5,8 +5,12 @@
 */
 class Cronometro {
 
+    #tiempo;
+    #inicio;
+    #corriendo;
+
     constructor() {
-        this.tiempo = 0;
+        this.#tiempo = 0;
     }
 
     arrancar() {
@@ -15,46 +19,46 @@ class Cronometro {
             if (typeof Temporal === 'undefined') {
                 throw new Error("Objeto Temporal no disponible");
             }
-            this.inicio = Temporal.Now.instant();
-        } catch(error) {
-            this.inicio = new Date();
+            this.#inicio = Temporal.Now.instant();
+        } catch (error) {
+            this.#inicio = new Date();
         }
-        this.corriendo = setInterval(this.actualizar.bind(this), 100);
+        this.#corriendo = setInterval(this.#actualizar.bind(this), 100);
     }
 
-    actualizar() {
+    #actualizar() {
         let actual;
         try {
             if (typeof Temporal === 'undefined') {
                 throw new Error("Objeto Temporal no disponible");
             }
             actual = Temporal.Now.instant();
-            this.tiempo = actual.epochMilliseconds - this.inicio.epochMilliseconds;
-        } catch(error) {
+            this.#tiempo = actual.epochMilliseconds - this.#inicio.epochMilliseconds;
+        } catch (error) {
             actual = new Date();
-            this.tiempo = actual.getTime() - this.inicio.getTime();
+            this.#tiempo = actual.getTime() - this.#inicio.getTime();
         }
-        this.mostrar();
+        this.#mostrar();
     }
 
     parar() {
-        clearInterval(this.corriendo);
+        clearInterval(this.#corriendo);
     }
 
     reiniciar() {
-        clearInterval(this.corriendo);
-        this.tiempo = 0;
-        this.mostrar();
+        clearInterval(this.#corriendo);
+        this.#tiempo = 0;
+        this.#mostrar();
     }
 
-    mostrar() {
-        let parrafo = document.querySelector('main p');
-        let msTotales = this.tiempo;
-        let minutos = parseInt(msTotales / 60000);           
-        let segundos = parseInt((msTotales % 60000) / 1000); 
-        let decimas = parseInt((msTotales % 1000) / 100);
-        let minDosDigitos = String(minutos).padStart(2, '0');
-        let secDosDigitos = String(segundos).padStart(2, '0');
-        parrafo.textContent = minDosDigitos + ":" +  secDosDigitos + "." + decimas;
+    #mostrar() {
+        const parrafo = document.querySelector('main p');
+        const msTotales = this.#tiempo;
+        const minutos = parseInt(msTotales / 60000);
+        const segundos = parseInt((msTotales % 60000) / 1000);
+        const decimas = parseInt((msTotales % 1000) / 100);
+        const minDosDigitos = String(minutos).padStart(2, '0');
+        const secDosDigitos = String(segundos).padStart(2, '0');
+        parrafo.textContent = minDosDigitos + ":" + secDosDigitos + "." + decimas;
     }
 }
