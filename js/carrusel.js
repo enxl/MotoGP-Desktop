@@ -1,33 +1,42 @@
+/*
+    Clase para el carrusel de fotos del circuito.
+    Autor: Enol Monte Soto
+    Versión: 1
+*/
 class Carrusel {
 
-    #fotosJSON;       
-    #jsonProcesado;   
+    #fotosJSON;
+    #jsonProcesado;
     #maximo;
+    #url;
+    #actual;
 
     constructor() {
         this.#fotosJSON = null;
         this.#jsonProcesado = null;
         this.#maximo = 5;
+        this.#url = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        this.#actual = 0;
     }
 
     // Obtener fotos desde la API y guardarlas en #fotosJSON
-    getFotografias() {
-        return new Promise((resolve, reject) => {
-            const flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-
-            $.getJSON(flickrAPI, {
+    getFotografias(callback) {
+        $.ajax({
+            url: this.#url,
+            dataType: "jsonp",
+            data: {
                 tags: "sachsenring,motogp",
                 tagmode: "any",
                 format: "json"
-            })
-                .done((data) => {
-                    this.#fotosJSON = data;       
-                    this.procesarJSONFotografias(); 
-                    resolve(this.#jsonProcesado);
-                })
-                .fail((error) => {
-                    reject(error);
-                });
+            },
+            success: (data) => {
+                this.#fotosJSON = data;
+                this.procesarJSONFotografias();
+                if (callback) callback(this.#jsonProcesado);
+            },
+            error: () => {
+                console.error("Error al obtener las imágenes de Flickr.");
+            }
         });
     }
 
@@ -46,9 +55,46 @@ class Carrusel {
         }
 
         this.#jsonProcesado = resultado;
-
-        // Esto debe ser un carrusel
         $("p").html(`Procesadas ${this.#jsonProcesado.imagenes.length} fotografías.`);
         $("pre").text(JSON.stringify(this.#jsonProcesado, null, 2));
     }
+
+    mostrarFotografias() {
+        if (!this.#jsonProcesado || this.#jsonProcesado.imagenes.length === 0) {
+            console.error("No hay imágenes para mostrar.");
+            return;
+        }
+
+        let primeraImagen = this.#jsonProcesado.imagenes[0];
+
+        let titulo = $("<h2>").text("Imágenes del circuito de Sachsenring");
+        let imagen = $("<img>").attr({
+            src: primeraImagen.url,
+            alt: primeraImagen.titulo
+        });
+
+        let elementos = titulo.add(imagen);
+        let article = $("<article>").append(elementos);
+        $("main").append(article);
+
+        // Pasar galería fotos.
+        setInterval(this.cambiarFotografia.bind(this), 3000);
+    }
+
+    cambiarFotografia() {
+        if (!this.#jsonProcesado || this.#jsonProcesado.imagenes.length === 0) {
+            return;
+        }
+
+        // Al acabar volver a primera foto.
+        this.#actual = (this.#actual + 1) % this.#jsonProcesado.imagenes.length;
+        let siguiente = this.#jsonProcesado.imagenes[this.#actual];
+
+        $("main article img").attr({
+            src: siguiente.url,
+            alt: siguiente.titulo
+        });
+    }
+
+
 }

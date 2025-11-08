@@ -36,11 +36,9 @@
     <main id="imagenes"></main>
     <script>
         $(document).ready(function () {
-            const miCarrusel = new Carrusel();
-            miCarrusel.getFotografias().then(json => {
-                json.imagenes.forEach(f => {
-                    $("#imagenes").append(`<img src="${f.url}" alt="${f.titulo}" />`);
-                });
+            const carrusel = new Carrusel();
+            carrusel.getFotografias(function () {
+                carrusel.mostrarFotografias();
             });
         });
     </script>
