@@ -13,6 +13,8 @@
     <link rel="icon" href="multimedia/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/ciudad.js"></script>
 </head>
 
@@ -35,18 +37,28 @@
 
     <main>
         <h2>Información Meteorológica</h2>
-        <section>
-            <h3>Datos de la localidad</h3>
-            <script>
-                let c = new Ciudad("Oberlungwitz", "Alemania", "oberlungwitzense");
-                c.rellenarDatos(6794, 12.723882235743968, 50.78520807361491);
-                const parrafoLocalidad = document.createElement("p");
-                parrafoLocalidad.textContent = "Localidad: " + c.getNombreCiudad();
-                document.body.appendChild(parrafoLocalidad);
-                c.getInfoSecundaria();
-                c.getCoordenadas();
-            </script>
-        </section>
+        <script>
+            let c = new Ciudad("Oberlungwitz", "Alemania", "oberlungwitzense");
+            c.rellenarDatos(6794, 12.723882235743968, 50.78520807361491);
+            const parrafoLocalidad = document.createElement("p");
+            parrafoLocalidad.textContent = "Localidad: " + c.getNombreCiudad();
+            document.body.appendChild(parrafoLocalidad);
+            c.getInfoSecundaria();
+            c.getCoordenadas();
+
+            $(document).ready(function () {
+                const ciudad = new Ciudad();
+                ciudad.getMeteorologiaCarrera(function () {
+                    ciudad.procesarJSONCarrera();
+                    ciudad.verMeteoCarrera();
+                });
+            });
+
+            c.getMeteorologiaEntrenos(function () {
+                c.procesarJSONEntrenos();
+                c.verMeteoEntrenos();
+            });
+        </script>
     </main>
 </body>
 
