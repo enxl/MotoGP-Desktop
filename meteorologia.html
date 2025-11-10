@@ -54,10 +54,14 @@
                 });
             });
 
-            c.getMeteorologiaEntrenos(function () {
-                c.procesarJSONEntrenos();
-                c.verMeteoEntrenos();
+            $(document).ready(function () {
+                const ciudad = new Ciudad();
+                ciudad.getMeteorologiaEntrenos(function () {
+                    ciudad.procesarJSONEntrenos();
+                    ciudad.verMeteoEntrenos();
+                });
             });
+            
         </script>
     </main>
 </body>

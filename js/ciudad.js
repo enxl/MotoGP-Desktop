@@ -69,7 +69,7 @@ class Ciudad {
                 end_date: fecha,
                 hourly: "temperature_2m,apparent_temperature,rain,relative_humidity_2m,wind_speed_10m,wind_direction_10m",
                 daily: "sunrise,sunset",
-                timezone: "Europe/Berlin"
+                timezone: "Europe/Madrid"
             },
             success: (data) => {
                 const resultado = {
@@ -124,16 +124,16 @@ class Ciudad {
         const datos = this.#jsonPRO;
         $("main").append($("<h3>").text("Meteorología del día de la carrera: " + datos.fecha));
         let diario = $("<section>");
-        diario.append($("<h4>").text("Datos diarios"));
+        diario.append($("<h4>").text("Datos del día de la carrera"));
         diario.append($("<p>").text("Salida del sol: " + datos.salida_sol));
         diario.append($("<p>").text("Puesta del sol: " + datos.puesta_sol));
         $("main").append(diario);
 
         let seccionHoras = $("<section>");
-        seccionHoras.append($("<h4>").text("Datos por horas"));
+        seccionHoras.append($("<h4>").text("Datos meteorológicos a la hora de la carrera."));
         $("main").append(seccionHoras);
 
-        for (let i = 0; i < datos.horas.length; i++) {
+        for (let i = 14; i < 15; /*datos.horas.length;*/ i++) {
             let art = $("<article>");
             art.append($("<h5>").text(datos.horas[i]));
             let lista = $("<ul>");
@@ -164,7 +164,7 @@ class Ciudad {
                 start_date: fechaInicio,
                 end_date: fechaFin,
                 hourly: "temperature_2m,rain,relative_humidity_2m,wind_speed_10m",
-                timezone: "Europe/Berlin"
+                timezone: "Europe/Madrid"
             },
             success: (data) => {
                 this.#jsonAPIEntrenos = data;
