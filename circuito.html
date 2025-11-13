@@ -12,6 +12,8 @@
     <link rel="icon" href="multimedia/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script src="js/circuito.js"></script>
+
 </head>
 
 <body>
@@ -25,14 +27,17 @@
             <a href="meteorologia.html" title="Información meteorológica">Meteorología</a>
             <a href="clasificaciones.html" title="Clasificaciones en MotoGP">Clasificaciones</a>
             <a href="juegos.html" title="Juegos en MotoGP-Desktop">Juegos</a>
-            <a href="noticias.html" title="Noticias MotoGP">Noticias</a>
             <a href="ayuda.html" title="Ayuda de MotoGP-Desktop">Ayuda</a>
         </nav>
     </header>
 
     <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> <strong>Circuito</strong></p>
-    
     <h2>Información sobre el circuito</h2>
-    <p>en desarrollo</p>
+    <main>
+            <input type="file" onchange="circuito.leerArchivoHTML(this.files[0]);">
+    </main>
+    <script>
+        circuito = new Circuito();
+    </script>
 </body>
 </html>

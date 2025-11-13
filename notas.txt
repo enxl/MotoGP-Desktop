@@ -89,3 +89,5 @@ $('selector').(...) -> Uso de selectores con JQuery.
 En news api, no usar correo de uniovi.
 fetch() devuelve una promesa, dentro de la promesa está la info de la petición.
 No crear articulos ni secciones para cada noticia (mejor encabezado + párrafo).
+
+El analisis va dentro del evento onload.

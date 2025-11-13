@@ -16,6 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/carrusel.js"></script>
+    <script src="js/noticias.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,6 @@
             <a href="meteorologia.html" title="Información meteorológica">Meteorología</a>
             <a href="clasificaciones.html" title="Clasificaciones en MotoGP">Clasificaciones</a>
             <a href="juegos.html" title="Juegos en MotoGP-Desktop">Juegos</a>
-            <a href="noticias.html" title="Noticias MotoGP">Noticias</a>
             <a href="ayuda.html" title="Ayuda de MotoGP-Desktop">Ayuda</a>
         </nav>
     </header>
@@ -41,6 +41,13 @@
             carrusel.getFotografias(function () {
                 carrusel.mostrarFotografias();
             });
+        });
+
+        $(document).ready(async function () {
+            const noticias = new Noticias();
+            noticias.busqueda = { value: "MotoGP" };
+            await noticias.buscar();
+            noticias.procesarInformacion();
         });
     </script>
 
