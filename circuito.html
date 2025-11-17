@@ -34,10 +34,24 @@
     <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> <strong>Circuito</strong></p>
     <h2>Información sobre el circuito</h2>
     <main>
+        <section>
+            <h3>Cargar información del circuito</h3>
             <input type="file" onchange="circuito.leerArchivoHTML(this.files[0]);">
+        </section>
+        
+        <section>
+            <h3>Cargar altimetría Del Circuito</h3>
+            <input type="file" onchange="cargadorSVG.leerArchivoSVG(this.files[0]);">
+        </section>
+
+        <section>
+            <h3>Cargar planimetría Del Circuito</h3>
+        </section>
+            
     </main>
     <script>
         circuito = new Circuito();
+        cargadorSVG = new CargadorSVG();
     </script>
 </body>
 </html>
