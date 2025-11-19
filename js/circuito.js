@@ -110,7 +110,7 @@ class CargadorKML {
                 }.bind(this));
 
                 console.log(this.#coordenadas);
-                this.insertarCapaKML();
+                this.#insertarCapaKML();
             }.bind(this);
 
             lector.readAsText(archivo);
@@ -119,7 +119,7 @@ class CargadorKML {
         }
     }
 
-    insertarCapaKML() {
+    #insertarCapaKML() {
         const token = "pk.eyJ1IjoiZW5vbG1vbnRlc290byIsImEiOiJjbWk1dXEyZmMyOWt0MmxzY28wNGEybG52In0.qriOMlbm6ItUFfCva6IArg";
         mapboxgl.accessToken = token;
 
@@ -127,7 +127,6 @@ class CargadorKML {
             console.error("No hay coordenadas para mostrar el mapa.");
             return;
         }
-        
         let centro = [12.688689977147785, 50.79229545253801];
 
         const contenedor = document.querySelector('main > div');

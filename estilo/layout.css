@@ -33,7 +33,6 @@ body>div {
     width: 60%;
     height: auto;
     margin: 5%;
-    border: 1px solid #ccc;
 }
 
 @media (min-width: 320px) and (max-width: 799px) {
@@ -74,5 +73,11 @@ body>div {
     article h2+img {
         width: 100%;
         height: auto;
+    }
+
+    body>div {
+        width: 100%;
+        height: auto;
+        margin: 5%;
     }
 }
