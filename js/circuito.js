@@ -65,14 +65,14 @@ class CargadorSVG {
 
     #insertarArchivoSVG(svg) {
         const parser = new DOMParser();
-        var documentoSVG = parser.parseFromString(svg, 'image/svg+xml');
-        var main = document.getElementsByTagName("main")[0];
-        var elementoSVG = documentoSVG.documentElement;
+        let documentoSVG = parser.parseFromString(svg, 'image/svg+xml');
+        let main = document.getElementsByTagName("main")[0];
+        let elementoSVG = documentoSVG.documentElement;
         main.appendChild(elementoSVG);
     }
 
     #mostrarError(mensaje) {
-        var pError = document.createElement("p");
+        let pError = document.createElement("p");
         pError.textContent = mensaje;
         document.body.appendChild(pError);
     }
@@ -84,27 +84,28 @@ class CargadorKML {
     #mapa = null;
 
     leerArchivoKML(archivo) {
-
+        
         if (archivo) {
 
             const lector = new FileReader();
 
             lector.onload = function () {
                 const parser = new DOMParser();
-                const doc = parser.parseFromString(lector.result, "text/xml");
+                let doc = parser.parseFromString(lector.result, "text/xml");
 
-                const coordenadasNode = doc.getElementsByTagName("coordinates")[0];
+                let coordenadasNode = doc.getElementsByTagName("coordinates")[0];
                 if (!coordenadasNode) {
                     console.error("No se encontraron coordenadas en el KML.");
                     return;
                 }
 
-                const lineas = coordenadasNode.textContent.trim().split(/\s+/);
+                let lineas = coordenadasNode.textContent.trim().split(/\s+/);
 
                 lineas.forEach(function (linea) {
                     linea = linea.trim();
-                    if (!linea) return;
-                    const [longitud, latitud, altitud] = linea.split(",").map(Number);
+                    if (!linea) 
+                        return;
+                    let [longitud, latitud, altitud] = linea.split(",").map(Number);
                     this.#coordenadas.push({ longitud, latitud, altitud });
                 }.bind(this));
 
@@ -126,9 +127,8 @@ class CargadorKML {
             console.error("No hay coordenadas para mostrar el mapa.");
             return;
         }
-
-        const primerPunto = this.#coordenadas[0];
-        const centro = [primerPunto.longitud, primerPunto.latitud];
+        
+        let centro = [12.688689977147785, 50.79229545253801];
 
         const contenedor = document.querySelector('main > div');
         this.#mapa = new mapboxgl.Map({

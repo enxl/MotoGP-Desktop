@@ -37,17 +37,13 @@ class Html(object):
 
     # Añade una imagen. Se pasa la ruta y el texto alternativo.
     def addImage(self, src, alt_text):
-        ruta = f"../{src.strip()}"
-        figure = ET.SubElement(self.main, 'figure')
-        ET.SubElement(figure, 'img', src=ruta, alt=alt_text)
-        caption = ET.SubElement(figure, 'figcaption')
-        caption.text = alt_text
+        ruta = f"{src.strip()}"
+        ET.SubElement(self.main, 'img', src=ruta, alt=alt_text)
 
     # Añade un video
     def addVideo(self, src):
-        ruta = f"../{src.strip()}"
-        figure = ET.SubElement(self.main, 'figure')
-        ET.SubElement(figure, 'video', src=ruta, controls='controls')
+        ruta = f"{src.strip()}"
+        ET.SubElement(self.main, 'video', src=ruta, controls='controls')
 
 
     def escribir(self, nombreArchivoHTML):
