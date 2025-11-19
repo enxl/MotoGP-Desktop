@@ -56,6 +56,6 @@ header a {
 }
 
 /* Especificidad -> 012 */
-body > p:first-of-type {
+body>p:first-of-type {
     font-size: 0.8em;
 }

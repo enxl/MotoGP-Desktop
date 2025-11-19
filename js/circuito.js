@@ -77,3 +77,99 @@ class CargadorSVG {
         document.body.appendChild(pError);
     }
 }
+
+class CargadorKML {
+
+    #coordenadas = [];
+    #mapa = null;
+
+    leerArchivoKML(archivo) {
+
+        if (archivo) {
+
+            const lector = new FileReader();
+
+            lector.onload = function () {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(lector.result, "text/xml");
+
+                const coordenadasNode = doc.getElementsByTagName("coordinates")[0];
+                if (!coordenadasNode) {
+                    console.error("No se encontraron coordenadas en el KML.");
+                    return;
+                }
+
+                const lineas = coordenadasNode.textContent.trim().split(/\s+/);
+
+                lineas.forEach(function (linea) {
+                    linea = linea.trim();
+                    if (!linea) return;
+                    const [longitud, latitud, altitud] = linea.split(",").map(Number);
+                    this.#coordenadas.push({ longitud, latitud, altitud });
+                }.bind(this));
+
+                console.log(this.#coordenadas);
+                this.insertarCapaKML();
+            }.bind(this);
+
+            lector.readAsText(archivo);
+        } else {
+            console.error("Archivo KML inválido.");
+        }
+    }
+
+    insertarCapaKML() {
+        const token = "pk.eyJ1IjoiZW5vbG1vbnRlc290byIsImEiOiJjbWk1dXEyZmMyOWt0MmxzY28wNGEybG52In0.qriOMlbm6ItUFfCva6IArg";
+        mapboxgl.accessToken = token;
+
+        if (this.#coordenadas.length === 0) {
+            console.error("No hay coordenadas para mostrar el mapa.");
+            return;
+        }
+
+        const primerPunto = this.#coordenadas[0];
+        const centro = [primerPunto.longitud, primerPunto.latitud];
+
+        const contenedor = document.querySelector('main > div');
+        this.#mapa = new mapboxgl.Map({
+            container: contenedor,
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: centro,
+            zoom: 14
+        });
+
+        new mapboxgl.Marker()
+            .setLngLat(centro)
+            .addTo(this.#mapa);
+
+        const geojson = {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+                'type': 'LineString',
+                'coordinates': this.#coordenadas.map(c => [c.longitud, c.latitud])
+            }
+        };
+
+        this.#mapa.on('load', () => {
+            this.#mapa.addSource('circuito', {
+                'type': 'geojson',
+                'data': geojson
+            });
+            this.#mapa.addLayer({
+                'id': 'circuito-linea',
+                'type': 'line',
+                'source': 'circuito',
+                'layout': {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                'paint': {
+                    'line-color': '#ff0000',
+                    'line-width': 4
+                }
+            });
+        });
+    }
+
+}

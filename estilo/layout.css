@@ -28,6 +28,14 @@ header h1 {
     justify-content: space-between;
 }
 
+/* Especificidad -> 002 */
+body>div {
+    width: 60%;
+    height: auto;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+}
+
 @media (min-width: 320px) and (max-width: 799px) {
 
     /* Especificidad -> 001 */
