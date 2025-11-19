@@ -30,7 +30,7 @@ header h1 {
 
 /* Especificidad -> 002 */
 body>div {
-    width: 60%;
+    width: 400px;
     height: auto;
     margin: 5%;
 }
@@ -53,8 +53,7 @@ body>div {
     }
 
     /* Especificidad -> 001 */
-    video,
-    figure {
+    video {
         width: 100%;
         height: auto;
     }
