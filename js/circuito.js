@@ -1,3 +1,8 @@
+/*
+    Clase para cargar información, altimetría y planimetría del circuito.
+    Autor: Enol Monte Soto
+    Versión: 1
+*/
 class Circuito {
 
     constructor() {
@@ -17,11 +22,10 @@ class Circuito {
         if (archivo && archivo.type.match(tipoTexto)) {
             var lector = new FileReader();
             lector.onload = function () {
+
                 var resultado = lector.result;
                 var parser = new DOMParser();
                 var docExt = parser.parseFromString(resultado, "text/html");
-
-                // Crear sección en este documento!!
                 var main = document.getElementsByTagName("main")[0];
                 var section = document.createElement("section");
                 var contentMain = docExt.getElementsByTagName("main")[0];
@@ -34,8 +38,14 @@ class Circuito {
             };
             lector.readAsText(archivo);
         } else {
-            errorArchivo.innerText = "Archivo no válido";
+            console.error("Archivo inválido.");
         }
+    }
+
+    #mostrarError(mensaje) {
+        var pError = document.createElement("p");
+        pError.textContent = mensaje;
+        document.body.appendChild(pError);
     }
 }
 
@@ -49,15 +59,21 @@ class CargadorSVG {
             }.bind(this);
             lector.readAsText(archivo);
         } else {
-            console.error("Archivo no SVG o inválido.");
+            console.error("Archivo inválido.");
         }
     }
 
     #insertarArchivoSVG(svg) {
         const parser = new DOMParser();
-        const documentoSVG = parser.parseFromString(svg, 'image/svg+xml');
+        var documentoSVG = parser.parseFromString(svg, 'image/svg+xml');
         var main = document.getElementsByTagName("main")[0];
-        const elementoSVG = documentoSVG.documentElement;
+        var elementoSVG = documentoSVG.documentElement;
         main.appendChild(elementoSVG);
+    }
+
+    #mostrarError(mensaje) {
+        var pError = document.createElement("p");
+        pError.textContent = mensaje;
+        document.body.appendChild(pError);
     }
 }
