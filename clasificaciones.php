@@ -13,14 +13,18 @@
         }
 
         public function consultar() {
-            // TODO
+            $datos = file_get_contents($this->documento);
+            if($datos === false) {
+                return false;
+            }
+            $xml = new SimpleXMLElement($datos);
+            return $xml;
         }
 
     }
 ?>
 
 <!DOCTYPE HTML>
-
 <html lang="es">
 <head>
     <!-- Datos que describen el documento -->
@@ -52,7 +56,24 @@
 
     <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> <strong>Clasificaciones</strong></p>
     
-    <h2>Clasificaciones de MotoGP</h2>
-    <p>en desarrollo</p>
+    <main>
+         <h2>Clasificaciones de MotoGP</h2>
+         <?php
+            $clasificaciones = new Clasificaciones();
+            $xml = $clasificaciones->consultar();
+            if($xml) {
+                echo "<h3>Cabeza de clasificación tras la carrera</h3>";
+                echo "<ol>";
+                foreach ($xml->clasificados->clasificado as $c) {
+                    $nombre = (string)$c;
+                    echo "<li>$nombre</li>";
+                }
+                echo "</ol>";
+
+            } else {
+                echo "<p>Error al leer el fichero.</p>";
+            }    
+         ?>
+    </main>
 </body>
 </html>
