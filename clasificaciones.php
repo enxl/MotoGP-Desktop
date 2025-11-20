@@ -1,3 +1,24 @@
+<?php
+    /**
+     * Clase que representa el cronómetro.
+     * Autor: Enol Monte Soto
+     * Versión: 1
+    */
+    class Clasificaciones {
+
+        private $documento;
+
+        public function __construct() {
+            $this->documento = "xml/circuitoEsquema.xml";
+        }
+
+        public function consultar() {
+            // TODO
+        }
+
+    }
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="es">
@@ -23,7 +44,7 @@
             <a href="piloto.html" title="Información del piloto">Piloto</a>
             <a href="circuito.html" title="Información del circuito">Circuito</a>
             <a href="meteorologia.html" title="Información meteorológica">Meteorología</a>
-            <a href="clasificaciones.html" title="Clasificaciones en MotoGP" class="active">Clasificaciones</a>
+            <a href="clasificaciones.php" title="Clasificaciones en MotoGP" class="active">Clasificaciones</a>
             <a href="juegos.html" title="Juegos en MotoGP-Desktop">Juegos</a>
             <a href="ayuda.html" title="Ayuda de MotoGP-Desktop">Ayuda</a>
         </nav>
