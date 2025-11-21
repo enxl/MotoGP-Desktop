@@ -11,6 +11,25 @@ class Cronometro {
 
     constructor() {
         this.#tiempo = 0;
+        this.#asociarEventosBotones();
+    }
+
+    #asociarEventosBotones() {
+        const botonArrancar = document.querySelector("main button:nth-of-type(1)");
+        const botonParar = document.querySelector("main button:nth-of-type(2)");
+        const botonReiniciar = document.querySelector("main button:nth-of-type(3)");
+
+        botonArrancar.addEventListener("click", function () {
+            this.arrancar();
+        }.bind(this));
+
+        botonParar.addEventListener("click", function () {
+            this.parar();
+        }.bind(this));
+
+        botonReiniciar.addEventListener("click", function () {
+            this.reiniciar();
+        }.bind(this));
     }
 
     arrancar() {

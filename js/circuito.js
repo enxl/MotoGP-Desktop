@@ -7,6 +7,7 @@ class Circuito {
 
     constructor() {
         this.#comprobarAPIFile;
+        this.#asociarEventoInput();
     }
 
     #comprobarAPIFile() {
@@ -15,6 +16,14 @@ class Circuito {
             parrafo.textContent = "Este navegador no soporta API File;";
             document.body.appendChild(parrafo);
         }
+    }
+
+    #asociarEventoInput() {
+        const input = document.querySelector("main input:nth-of-type(1)");
+        input.addEventListener("change", function () {
+            const archivo = input.files[0];
+            this.leerArchivoHTML(archivo);
+        }.bind(this));
     }
 
     leerArchivoHTML(archivo) {
@@ -51,6 +60,18 @@ class Circuito {
 
 class CargadorSVG {
 
+    constructor() {
+        this.#asociarEventoInput();
+    }
+
+    #asociarEventoInput() {
+        const input = document.querySelector("main input:nth-of-type(2)");
+        input.addEventListener("change", function () {
+            const archivo = input.files[0];
+            this.leerArchivoSVG(archivo);
+        }.bind(this));
+    }
+
     leerArchivoSVG(archivo) {
         if (archivo && archivo.type === "image/svg+xml") {
             const lector = new FileReader();
@@ -83,8 +104,20 @@ class CargadorKML {
     #coordenadas = [];
     #mapa = null;
 
+    constructor() {
+        this.#asociarEventoInput();
+    }
+
+    #asociarEventoInput() {
+        const input = document.querySelector("main input:nth-of-type(3)");
+        input.addEventListener("change", function () {
+            const archivo = input.files[0];
+            this.leerArchivoKML(archivo);
+        }.bind(this));
+    }
+
     leerArchivoKML(archivo) {
-        
+
         if (archivo) {
 
             const lector = new FileReader();
@@ -103,7 +136,7 @@ class CargadorKML {
 
                 lineas.forEach(function (linea) {
                     linea = linea.trim();
-                    if (!linea) 
+                    if (!linea)
                         return;
                     let [longitud, latitud, altitud] = linea.split(",").map(Number);
                     this.#coordenadas.push({ longitud, latitud, altitud });
@@ -154,7 +187,7 @@ class CargadorKML {
             this.#mapa.addSource('circuito', {
                 'type': 'geojson',
                 'data': geojson
-            });
+            }.bind(this));
             this.#mapa.addLayer({
                 'id': 'circuito-linea',
                 'type': 'line',

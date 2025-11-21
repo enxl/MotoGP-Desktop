@@ -35,21 +35,12 @@
     <p>Estás en: <a href="index.html" title="Inicio">Inicio</a> >> <strong>Circuito</strong></p>
     <h2>Información sobre el circuito</h2>
     <main>
-        <section>
-            <h3>Cargar información del circuito</h3>
-            <input type="file" onchange="circuito.leerArchivoHTML(this.files[0]);">
-        </section>
-
-        <section>
-            <h3>Cargar altimetría del circuito</h3>
-            <input type="file" onchange="cargadorSVG.leerArchivoSVG(this.files[0]);">
-        </section>
-
-        <section>
-            <h3>Cargar planimetría del circuito</h3>
-            <input type="file" onchange="cargadorKML.leerArchivoKML(this.files[0]);">
-        </section>
-
+        <h3>Cargar información del circuito</h3>
+        <input type="file">
+        <h3>Cargar altimetría del circuito</h3>
+        <input type="file">
+        <h3>Cargar planimetría del circuito</h3>
+        <input type="file">
         <div><!-- Contenedor para cargar mapa --></div>
     </main>
     <script>
